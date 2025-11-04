@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-
 echo "Starting MP3 → WAV → MIDI transcription"
 
 WAV_DIR="/wav_output"
