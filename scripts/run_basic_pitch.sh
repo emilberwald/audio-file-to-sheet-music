@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Starting MP3 → WAV → MIDI transcription"
+echo "Starting WAV → MIDI transcription"
 
 WAV_DIR="/wav_output"
 OUTPUT_DIR="/midi_output"
