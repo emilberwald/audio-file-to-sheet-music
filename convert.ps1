@@ -5,7 +5,7 @@ Remove-Item -Path "midi_output" -Recurse -Force
 New-Item -ItemType Directory -Path ".\wav_output"
 New-Item -ItemType Directory -Path ".\midi_output"
 
-Get-ChildItem ".\audio_input" -Filter *.mp3 | ForEach-Object {
+Get-ChildItem ".\audio_input" | ForEach-Object {
     $outputFile = ".\wav_output\$($_.BaseName).wav"
     if (-Not (Test-Path $outputFile)) {
         ffmpeg -y -i $_.FullName $outputFile
