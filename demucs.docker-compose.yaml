@@ -1,0 +1,19 @@
+services:
+    demucs:
+        build:
+            context: .
+            dockerfile: demucs.dockerfile
+        volumes:
+            - ./wav_output:/wav_output
+            - ./midi_output:/midi_output
+            - ./scripts:/scripts
+            - ./.cache:/root/.cache
+        command: ["bash", "/scripts/run_demucs.sh"]
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - driver: nvidia
+                          count: all
+                          capabilities: [gpu]
+        runtime: nvidia

@@ -1,0 +1,18 @@
+services:
+    lilypond:
+        build:
+            context: .
+            dockerfile: lilypond.dockerfile
+        volumes:
+            - ./midi_output:/midi_output
+            - ./scripts:/scripts
+        working_dir: /midi_output
+        entrypoint: ["bash", "/scripts/run_lilypond.sh"]
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - driver: nvidia
+                          count: all
+                          capabilities: [gpu]
+        runtime: nvidia
